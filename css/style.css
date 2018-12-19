@@ -264,6 +264,35 @@ input[value="添加"]:hover{
 }
 
 /*表格样式*/
+
+.add{
+    margin: 30px;
+    width: 96%;
+    background-color: #f4f4f4;
+    height: 60px;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+.add input[type=button]{
+    border: none;
+    background-color: #ffa200;
+    width: 120px;
+    height: 35px;
+    position: absolute;
+    right: 110px;
+    top: 13px;
+    font-size: 15px;
+    color: #fffefe;
+}
+
+.add span{
+    display: inline-block;
+    width: 70px;
+    margin-left: 40px;
+    margin-top: 6px;
+}
+
 table{
     width: 96%;
     margin: 30px;
@@ -273,12 +302,13 @@ table{
 }
 
 table input{
-    margin: 15px 0;
+    /*margin: 15px 0;*/
     text-align: center;
     border: none;
 }
 
 th{
+    padding: 15px 0;
     background-color: #f4f4f4;
 }
 
@@ -287,6 +317,7 @@ tbody{
 }
 
 table td, table th{
+    padding: 15px 0;
     border: 1px solid #ccc;
     text-align: center;
 }
