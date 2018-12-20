@@ -94,30 +94,57 @@ class Table extends React.Component {
             memberInformation:this.state.memberInformation
         });
 
+        alert("修改成功！");
     }
 
-    del(index){
-        alert(index);
+    handleDel(index){
         this.state.memberInformation.splice(index,1);
         this.setState({
             memberInformation:this.state.memberInformation
-        })
+        });
+        alert("删除成功！");
+    }
 
+    handleAdd(){
+        let num=document.getElementById("add-num").value;
+        let name=document.getElementById("add-name").value;
+        let phoneNum=document.getElementById("add-phoneNum").value;
+        let idNum=document.getElementById("add-idNum").value;
+        let location=document.getElementById("add-location").value;
+        let order=document.getElementById("add-order").value;
+        let expenditure=document.getElementById("add-expenditure").value;
+        let joinTime=document.getElementById("add-joinTime").value;
+        let index = this.state.memberInformation.length;
+        this.state.memberInformation[index] = {};
+        this.state.memberInformation[index].num = num;
+        this.state.memberInformation[index].name = name;
+        this.state.memberInformation[index].phoneNum = phoneNum;
+        this.state.memberInformation[index].idNum = idNum;
+        this.state.memberInformation[index].location = location;
+        this.state.memberInformation[index].order = order;
+        this.state.memberInformation[index].expenditure = expenditure;
+        this.state.memberInformation[index].joinTime= joinTime;
+        this.state.memberInformation[index].mod = 0;
+        this.setState({
+            memberInformation:this.state.memberInformation
+        });
+
+        alert("添加成功！");
     }
 
     render(){
         return(
             <div>
                 <div className="add">
-                    <span>会员编号</span><input type="text"/>
-                    <span>会员名称</span><input type="text"/>
-                    <span>手机号码</span><input type="text"/>
-                    <span>身份证号</span><input type="text"/><br/>
-                    <span>所在地</span><input type="text"/>
-                    <span>订单数</span><input type="text"/>
-                    <span>总消费额</span><input type="text"/>
-                    <span>入会时间</span><input type="text"/>
-                    <input type="button" defaultValue="添加会员"/>
+                    <span>会员编号</span><input id="add-num" type="text"/>
+                    <span>会员名称</span><input id="add-name" type="text"/>
+                    <span>手机号码</span><input id="add-phoneNum" type="text"/>
+                    <span>身份证号</span><input id="add-idNum" type="text"/><br/>
+                    <span>所在地</span><input id="add-location" type="text"/>
+                    <span>订单数</span><input id="add-order" type="text"/>
+                    <span>总消费额</span><input id="add-expenditure" type="text"/>
+                    <span>入会时间</span><input id="add-joinTime" type="text"/>
+                    <input type="button" onClick={this.handleAdd.bind(this)} defaultValue="添加会员"/>
                 </div>
                 <table>
                     <thead>
@@ -149,7 +176,7 @@ class Table extends React.Component {
                                         <td>{inform.joinTime}</td>
                                         <td>
                                             <span className="modification" onClick={this.handleMod.bind(this,id)}>修改</span>
-                                            <span className="del" onClick={this.del.bind(this,id)}>删除</span>
+                                            <span className="del" onClick={this.handleDel.bind(this,id)}>删除</span>
                                         </td>
                                     </tr>
                                 )
